@@ -1,3 +1,5 @@
+/* Database connection using sequelize */
+
 const Sequelize= require("sequelize")
 const sequelize = new Sequelize('sosdb', 'root', '', {
   host: 'localhost',

@@ -19,8 +19,13 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+/*to remove cors error 
+ add respose headers which allows browser to allow cors */
 
 app.use(cors())
+
+/* Routing of request patterns */
+
 app.use('/other', othersRouter);
 app.use('/sos', sosRouter);
 

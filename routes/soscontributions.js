@@ -29,21 +29,6 @@ router.get("/data/",(req,res)=>{
 	})
 	})
 
-/*request to post amount of soscontribution */
-
-router.post("/data/post/:id/:val/",(req,res)=>{
-	let val=req.params.val
-	let id=req.params.id
-	models.Soscontribution.create({sosid:id,Amount:val}).then(result=>{
-
-		res.send({
-		status:'success',
-		result:result
-	})
-
-	})
-})
-
 /*request to update soscontribution */
 
 router.put("/data/update/:val/",(req,res)=>{
@@ -60,34 +45,11 @@ router.put("/data/update/:val/",(req,res)=>{
 		status:'success',
 		result:result
 	})
+
+	})
 	.catch(err=>{
 		console.log(err)
-	})
-
-	})
-})
-
-/* request to delete soscontribution */
-
-router.delete("/data/delete/:id/",(req,res)=>{
-	let id=req.params.id
-	models.Soscontribution.destroy({
-			where:{
-			sosid:id
-			}
-		})
-		.then(results=>{
-			res.send({
-		status:'success',
-		result:results
-	})
-		})
-		.catch(err=>{
-			res.send({
-		status:'err',
-		err:err
-	})
-		});
+	});
 })
 
 
