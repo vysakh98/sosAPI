@@ -6,6 +6,14 @@ var logger = require('morgan');
 const Sequelize = require('sequelize');
 var sosRouter = require('./routes/soscontributions');
 var othersRouter = require('./routes/othercontribution');
+var PBRouter = require('./routes/PB');
+var MAWRouter = require('./routes/Maw');
+var PEMRouter = require('./routes/Pem');
+var PSRouter = require('./routes/Projectsupplies');
+var PCRouter = require('./routes/personalCost');
+var TravelRouter = require('./routes/travel');
+var SCRouter = require('./routes/subcontract');
+var LOCRouter = require('./routes/LOC');
 var cors = require('cors')
 var app = express();
 require('./db/connection.js')
@@ -28,6 +36,15 @@ app.use(cors())
 
 app.use('/other', othersRouter);
 app.use('/sos', sosRouter);
+app.use('/PB',PBRouter);
+app.use('/MAW',MAWRouter);
+app.use('/PEM',PEMRouter);
+app.use('/PS',PSRouter);
+app.use('/PC',PCRouter);
+app.use('/SC',SCRouter);
+app.use('/Travel',TravelRouter);
+app.use('/LOC', LOCRouter);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

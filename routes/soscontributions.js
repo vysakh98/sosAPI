@@ -29,6 +29,22 @@ router.get("/data/",(req,res)=>{
 	})
 	})
 
+router.post("/data/post/:id/:val",(req,res)=>{
+	let id=req.params.id
+	let Amount=req.params.val
+	models.Soscontribution.create({sosid:id,Amount:Amount}).then(results=>{
+		res.send({
+			status:'success',
+			result:results
+		})
+	})
+	.catch(err=>{
+		res.send(
+			{error:err}
+			)
+	})
+})
+
 /*request to update soscontribution */
 
 router.put("/data/update/:val/",(req,res)=>{
